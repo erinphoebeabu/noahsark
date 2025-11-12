@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap"
+        rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+    integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="pet-details.css">
+    <title>Pet Details</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+
+<body>
+    <header>
+        <div class="navlist">
+            <div class="home-icon">
+                <a href="index.html#ourAnimals"><i class="fa-solid fa-house"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="pet-details">
+        <div class="gallery">
+            <div class="left-adopt">
+            <div class="left-image">
+            </div>
+        </div>
+            <div class="right-images">
+              <div class="right-image">
+                <img src="img/adopt-taro-2.JPG" alt="Image 1" class="adopt-img-2">
+              </div>
+              <div class="right-image">
+                <img src="img/adopt-taro-3.JPG" alt="Image 1" class="adopt-img-3">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="adopt-text">
+            <h3 id="petName"></h3>
+            <h4 id="petBreed">ASPIN</h4>
+            <p id="petDescription">Lorem ipsum, dolor sit amet consectetur adipisicing elit. At architecto consectetur
+                ex provident qui. Aliquam
+                quis, quia cumque asperiores nobis quod? Ullam a atque quo, maiores alias sed itaque sapiente nihil
+                consequuntur
+                aperiam reiciendis vitae rem quos, facere ea harum, impedit quia. Consequatur maxime obcaecati illo
+                saepe iure
+                voluptates, ab inventore neque dolore deleniti fugiat dolor quaerat tempora? Nulla, fugit.</p>
+                <ul id="petList">
+                </ul>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeoxkoO5Tg7QX9dy4bPgwfWDUmle1vsbeW6lDuopa1fQXQ5Q/viewform" target="_blank" rel="noopener" class="volunteer-btn">adopt</a>
+        </div>
+        <img src="img/13.png" alt="shape" class="donate-shape-content-2">
+        <img src="img/testimonial-bg.png" alt="shape" class="donate-shape-content-3">
+    </section>
+
+    <script>
+const urlParams = new URLSearchParams(window.location.search);
+const petName = urlParams.get('pet');
+
+document.getElementById('petName').innerText = `${petName}`;
+
+const imageSources = {
+    'AQUA': ['img/adopt-img/adopt-aqua-1.jpg', 'img/adopt-img/adopt-aqua-2.jpg', 'img/adopt-img/adopt-aqua-3.jpg'],
+    'milky': ['img/adopt-img/adopt-milky-1.JPG', 'img/adopt-img/adopt-milky-3.JPG', 'img/adopt-img/adopt-milky-2.JPG'],
+    'KROBUS': ['img/adopt-img/adopt-krobus-1.jpg', 'img/adopt-img/adopt-krobus-3.JPG', 'img/adopt-img/adopt-krobus-2.jpg'],
+    'CHISAY': ['img/adopt-img/adopt-chisay-1.jpg', 'img/adopt-img/adopt-chisay-3.JPG', 'img/adopt-img/adopt-chisay-2.jpg'],
+    'SHAGGY': ['img/adopt-img/adopt-shaggy-1.jpg', 'img/adopt-img/adopt-shaggy-3.JPG', 'img/adopt-img/adopt-shaggy-2.jpg'],
+    'BISCOFF': ['img/adopt-img/adopt-biscoff-1.jpg', 'img/adopt-img/adopt-biscoff-3.png', 'img/adopt-img/adopt-biscoff-2.png'],
+    'COW': ['img/adopt-img/adopt-cow-1.jpg', 'img/adopt-img/adopt-cow-3.JPG', 'img/adopt-img/adopt-cow-2.png'],
+    'TARO': ['img/adopt-img/adopt-taro-1.jpg', 'img/adopt-img/adopt-taro-2.jpg', 'img/adopt-img/adopt-taro-3.jpg'],
+    'WHITEY': ['img/adopt-img/adopt-whitey-1.jpg', 'img/adopt-img/adopt-whitey-3.JPG', 'img/adopt-img/adopt-whitey-2.jpg'],
+    'HIRO': ['img/adopt-img/adopt-hiro-1.JPG', 'img/adopt-img/adopt-hiro-2.JPG', 'img/adopt-img/adopt-hiro-3.JPG'],
+    'OBI': ['img/adopt-img/adopt-obi-1.JPG', 'img/adopt-img/adopt-obi-2.JPG', 'img/adopt-img/adopt-obi-3.JPG'],
+    'ONYX': ['img/adopt-img/adopt-onyx-1.JPG', 'img/adopt-img/adopt-onyx-3.JPG', 'img/adopt-img/adopt-onyx-2.JPG'],
+};
+
+const petImages = imageSources[petName];
+const leftImage = document.querySelector('.left-image');
+const rightImages = document.querySelectorAll('.right-image img');
+
+if (petImages && petImages.length > 0) {
+    leftImage.style.backgroundImage = `url(${petImages[0]})`;
+}
+
+
+if (petImages && petImages.length > 1) {
+    rightImages.forEach((img, index) => {
+        img.src = petImages[index + 1];
+        img.alt = `Image ${index + 2}`;
+    });
+}
+
+const petDetails = {
+    'AQUA': ['Energetic and lively', 'Enthusiastic about outdoor activities',  'Loves water and enjoys swimming', 'Graceful and poised',
+'Prefers lounging in sunny spots',
+'Displays regal demeanor'],
+'milky': ['Snowy Fur Coat', 'Enthusiastic about outdoor activities.',  'Loves water and enjoys swimming.', 'Graceful and poised','Prefers lounging in sunny spots','Displays regal demeanor'],
+    'KROBUS': ['Sleek and Mysterious Appearance', 'Observant and Curious', 'Thrives in Dimly Lit Spaces','Graceful and Agile','Occasional Playfulness','Mesmerizing Purr'],
+    'CHISAY': ['Warm and Affectionate', 'Fluffy and Inviting for Cuddles', 'Loyal and Loving Nature', 'Gentle Demeanor', 'Joyful Tail Wagging', 'Playful Spirit'],
+    'SHAGGY': ['Wild and Untamed Appearance', 'Enjoys Outdoor Adventures', 'Spirited and Always Ready for Exploration','Eager Trailblazer','Natural Instinct for Play','Fearless Explorer','Loyal Companion on the Journey'],
+    'BISCOFF': ['Gentle and Sweet Nature', 'Soft and Plush Fur', 'Enjoys Snuggling and Purring','Master of Comfort','Expressive Eyes','Graceful Movements'],
+    'COW': ['Large and Gentle Demeanor', 'Friendly, Especially with Children', 'Spreads Joy with a Calm Presence','White as a Cow’s Milk Coat','Leisurely Strolls in the Park','Graceful Movements','Comforting Presence'],
+    'TARO': ['Serene and Contemplative', 'Often Found in Peaceful Settings', 'Brings a Sense of Tranquility','Tiger-Like Majesty in His Coat','Meditative Gaze','Gentle Movements'],
+    'WHITEY': ['Pristine White Coat and Blue Eyes', 'Playful and Enjoys Chasing Toys', 'Loves Basking in Sunlight','Winter Magic Everywhere She Goes.','Fluffy Snowball Charm','Icicle-Like Sparkle in Her Eyes'],
+    'HIRO': ['Devoted and Loyal', 'Protective and Watchful', 'Glossy Coat and Strong Presence','Nocturnal Explorer','Graceful and Stealthy Presence','Eyes that Gleam Like Stars'],
+    'OBI': ['Spirited and Lively', 'Energetic and Full of Enthusiasm', 'Life of the Party, Enjoys Playtime','Radiates Sunshine in His Coat','Infectious Zest for Life','Heartwarming Presence of Joy'],
+    'ONYX': ['Sleek Black Coat Like the Night Sky', 'Nocturnal and Active in the Dark', 'Stealthy and Graceful in Movements','Devoted and Loyal Nature','Alert Expression Ready for Action','Guardian Instincts in Full Force'],
+};
+
+const petList = document.getElementById('petList');
+if (petDetails[petName]) {
+    petDetails[petName].forEach(detail => {
+        const liElement = document.createElement('li');
+        liElement.innerText = detail;
+        petList.appendChild(liElement);
+    });
+}
+
+if (petName === 'AQUA') {
+    document.getElementById('petDescription').innerText =
+
+        'Introducing Aqua, a four-legged bundle of joy whose vivacity and playful spirit light up every room! With a sleek coat as dark as the night, Aqua is not only a visual stunner but also a canine dynamo ready to inject boundless energy into your life. This spirited pup is the ultimate playmate, always on the lookout for a game of fetch or a refreshing splash in the kiddie pool. Aquas enthusiasm is contagious, turning every ordinary day into an extraordinary adventure. Whether its a romp in the park or a leisurely stroll, Aquas zest for life is unmatched.';
+} else if (petName === 'milky') {
+
+    document.getElementById('petDescription').innerText = 'The sleek and graceful movements of Milky are a testament to her feline poise, as she glides through the room with a silent and effortless elegance. Whether she is stretching languidly or grooming herself with meticulous attention, every motion seems carefully choreographed, adding to her innate sense of grace. Her preference for lounging in sunny spots is a spectacle of sheer indulgence. Milky seeks out the warmth of sunbeams streaming through windows, turning these patches into her personal thrones. With eyes half-closed, she basks in the golden glow, embodying a queen luxuriating in the splendor of her own kingdom.';
+    document.getElementById('petBreed').innerText = 'PUSPIN';
+} else if (petName === 'KROBUS') {
+
+    document.getElementById('petDescription').innerText = 'Krobus, the enigmatic cat, captivates with a sleek black and white coat that appears to absorb even the faintest glimmer of light. His every movement exudes an air of mystery, as if he walks the line between the visible and the unseen. With eyes that gleam mysteriously in the dark, Krobus navigates the world with an effortless blend of elegance and intrigue. His presence is an enigma, a silent guardian of the hidden realms, and a creature that seems to transcend the ordinary.';
+    document.getElementById('petBreed').innerText = 'PUSPIN';
+}
+
+ else if (petName === 'CHISAY') {
+    document.getElementById('petDescription').innerText = 'Chisay, with her endearing presence, embodies the essence of canine coziness, transforming your living space into a haven of warmth and affection. As more than just a pet, she seamlessly integrates herself into the rhythm of your daily life, becoming a cuddly companion whose sole purpose is to infuse joy and comfort into every moment. Her Shih Tzu charm goes beyond the expected, captivating hearts with an irresistible warmth that emanates from her very being. The inviting nature of Chisay extends beyond her physical appearance – it is a genuine warmth that radiates through her every action. Whether she is greeting you at the door with an excited tail wag or snuggling up beside you on the couch, her presence becomes an integral part of the tapestry of your home.';
+    document.getElementById('petBreed').innerText = 'SHIH TZU';
+}
+
+else if (petName === 'SHAGGY') {
+    document.getElementById('petDescription').innerText = 'Meet Shaggy, the epitome of the adventurous explorer in canine form. With a smooth coat that hints at the untamed spirit within, Shaggy is not your ordinary dog; he is a boundless adventurer always on the lookout for the next exciting escapade. Whether it is a hike through rugged terrain or a romp in the great outdoors, the spirited demeanor of Shaggy transforms every outing into a thrilling journey of discovery.';
+    document.getElementById('petBreed').innerText = 'ASPIN';
+}
+
+else if (petName === 'BISCOFF') {
+    document.getElementById('petDescription').innerText = 'Meet Biscoff, the epitome of feline sweetness and gentleness. With fur as soft as a marshmallow, this affectionate cat is a living embodiment of warmth and comfort. Her gentle nature transforms every interaction into a tender moment, creating a delightful experience for anyone fortunate enough to share in her company. As a beloved companion, the presence of Biscoff is a source of joy and tranquility';
+    document.getElementById('petBreed').innerText = 'PUSPIN';
+}
+
+else if (petName === 'COW') {
+    document.getElementById('petDescription').innerText = 'Cow, the Gentle Giant, is a dog whose presence embodies both size and serenity. With a coat as white as a mil of a cow, he stands as a majestic testament to the beauty of gentleness. Despite his large stature, Cow is a sweetheart, and his gentle soul radiates a warmth that envelops all who encounter him. Whether he is engaging with children or strolling leisurely in the park, His calm demeanor becomes a source of joy, leaving a lasting impression on those fortunate enough to share in his company.';
+    document.getElementById('petBreed').innerText = 'ASPIN';
+}
+
+else if (petName === 'TARO') {
+    document.getElementById('petDescription').innerText = 'Taro, the Zen Kitty, is a feline sage with a serene and contemplative essence. Cloaked in a coat that mirrors the majestic fur of a tiger, Taro roams the spaces of the home, embodying a living embodiment of tranquility. His presence is a source of peace, providing the perfect companionship for moments of quiet reflection and relaxation. His defining quality is his serene and contemplative nature. His demeanor reflects a cat with a profound sense of inner calm, navigating the world with a measured grace that draws attention and admiration. His gaze, deep and thoughtful, suggests a feline mind engaged in silent contemplation, making him a unique and enigmatic companion.';
+    document.getElementById('petBreed').innerText = 'TARO';
+}
+
+else if (petName === 'WHITEY') {
+    document.getElementById('petDescription').innerText = 'Whitey, the Snowy Pup, is a canine embodiment of winter enchantment, with a pristine white coat that evokes the purity of freshly fallen snow. Resembling a fluffy snowball, Whitey carries with her an aura of playfulness and joy, spreading a touch of winter magic wherever her paws tread. With bright blue eyes that sparkle like icicles, she is a delightful companion, bringing a refreshing coolness and playful spirit to every moment.';
+    document.getElementById('petBreed').innerText = 'WHITE SHEPERD';
+}
+
+else if (petName === 'HIRO') {
+    document.getElementById('petDescription').innerText = 'Introducing Hiro, the Midnight Explorer, a feline adventurer with a sleek striped coat that shimmers like the night sky. Hiro is a nocturnal nature transforms him into the ultimate explorer under the glow of the moon, and his eyes, which gleam like stars, reveal the depth of his curiosity and the mystery that surrounds him. Prowling the house with a graceful and stealthy presence, Hiro is not just a cat; he is a captivating enigma of the night, a devoted companion on a journey through the shadows.';
+    document.getElementById('petBreed').innerText = 'PERS-PIN';
+}
+
+else if (petName === 'OBI') {
+    document.getElementById('petDescription').innerText = 'Meet Obi, the Spirited Pup, a bundle of energy and enthusiasm that brightens every corner of your world. With a coat that seems to radiate sunshine, Obi is more than just a dog; he is a spirited companion who brings an infectious zest for life wherever his playful paws take him. Whether it is a game of catch, a joyful sprint around the backyard, or simply reveling in the joy of the present moment, Obi embodies the spirit of exuberance and lively companionship.';
+    document.getElementById('petBreed').innerText = 'SHIH TZU';
+}
+
+else if (petName === 'ONYX') {
+    document.getElementById('petDescription').innerText = 'Onyx, the Loyal Guardian, is a canine companion whose unwavering devotion and protective nature define his character. Cloaked in a sleek black coat reminiscent of the vast night sky, Onyx stands as a symbol of strength and loyalty. With an alert expression that mirrors his readiness to stand by your side, Onyx is more than just a dog; he is a steadfast guardian and a faithful companion, ready to navigate the challenges of life with you.';
+    document.getElementById('petBreed').innerText = 'ASPIN';
+}
+ 
+    </script>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+    integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</html>

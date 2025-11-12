@@ -1,0 +1,368 @@
+@import url('https://fonts.cdnfonts.com/css/poppins');
+@import url('https://fonts.cdnfonts.com/css/supersonic-rocketship');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: auto;
+    font-family: 'Supersonic rocketship', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.hidden {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 1s ease;
+  }
+  
+  .reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  
+  .reveal-2 {
+    position: relative;
+    transform: translateX(-150px);
+    opacity: 0;
+    transition: all 2s ease-in-out;
+    transition-delay: 0.5s;
+  }
+  
+  .reveal-2.active {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  
+  .reveal-3 {
+    position: relative;
+    transform: translateY(-150px);
+    opacity: 0;
+    transition: all 1s ease;
+  }
+  
+  .reveal-3.active {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  
+
+.volunteer-btn {
+    position: relative;
+    margin-top: 80px;
+    color: #fff;
+    background-color: #ff9100;
+    padding: 15px;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    transition: 0.5s;
+    margin-left: 140px;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px #00000042;
+    text-shadow: 0 10px 20px rgba(246, 246, 246, 0.208);
+    transition: ease-in-out 0.4s;
+}
+
+.volunteer-btn:hover {
+    color: #ff9100;
+    background-color: #38807d;
+    box-shadow: 0 5px 15px #017f749d;
+}
+
+.brand {
+    position: absolute;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+.brand img {
+    max-height: 80px
+}
+
+.brand-volunteer {
+    position: absolute;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    left: 7%;
+    transform: translate(-50%, -50%);
+    top: 120%;
+}
+
+.brand-volunteer img {
+    max-height: 80px
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 30px 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+header.sticky {
+    padding: 12px 14%;
+    background-color: #1f1e1e;
+}
+
+.home-icon {
+    display: flex;
+    padding: 13px;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f4846;
+    border-radius: 3em;
+    box-shadow: 0px 1px 20px #1e1e1ecc;
+    width: 90%;
+    gap: 10px;
+}
+
+.home-icon i {
+    vertical-align: middle;
+    font-size: 16px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    color: #0c736a;
+    margin-left: 8px;
+    margin-right: 5px;
+    transition: all 0.4s ease;
+    padding: 8px;
+    box-shadow: #1e1e1ecc 0px 1px 20px;
+    font-size: 18px;
+}
+
+.home-icon i:hover {
+    color: #ffffff;
+    background-color: #ff9100;
+}
+
+.pet-details {
+    position: relative;
+    display: grid;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5% 3%;
+    background-image: url('img/adopt-board.png');
+    min-height: 100vh;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery {
+    display: flex;
+    gap: 20px;
+    height: auto;
+    margin-top: 30px;
+}
+
+.left-adopt{
+    flex: 1;
+}
+
+.left-image {
+    height: 710px;
+    width: 300px;
+    margin: 10px;
+    border-radius: 150px;
+    background: url('img/adopt-taro-1.JPG');
+    background-size: cover;
+    background-position: center;
+}
+
+.right-images {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.right-image {
+    flex: 1;
+}
+
+.right-image img {
+    width: 320px;
+    height: 330px;
+    display: block;
+    margin-top: 10px;
+    margin-left: -100px;
+}
+
+.adopt-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-top: 30px;
+    margin-left: -50px;
+}
+
+.adopt-text h3 {
+    color: #009083;
+    font-size: 80px;
+    font-weight: 100;
+}
+
+.adopt-text h4 {
+    color: #ff9100;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.adopt-text p {
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+#petList {
+    font-family: 'Poppins', sans-serif;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.donate-shape-content-2 {
+    display: block;
+    max-width: 200px;
+    position: absolute;
+    top: 40em;
+    right: 20%;
+    transform: rotate(20deg);
+}
+
+.donate-shape-content-3 {
+    display: block;
+    max-width: 200px;
+    position: absolute;
+    top: 2em;
+    right: 10%;
+    transform: rotate(20deg);
+    opacity: 0.3;
+}
+
+@media (max-width: 1669px) {
+    .left-image {
+        height: 510px;
+        width: 250px;
+    }
+    .right-image img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .adopt-text h3{
+         font-size: 5dvw;
+    }
+
+    .adopt-text h4{
+        font-size: 4dvw;
+    }
+
+    .adopt-text p{
+        font-size: 1dvw;
+    }
+
+    .adopt-text li{
+        font-size: 1dvw;
+    }
+
+    .adopt-text {
+        margin-left: -50px;
+    }
+
+    .donate-shape-content-2 {
+        display: block;
+        max-width: 150px;
+        position: absolute;
+        top: 40em;
+        right: 15%;
+        transform: rotate(20deg);
+    }
+
+}
+
+@media (max-width: 1469px) {
+    .left-image {
+        height: 510px;
+        width: 250px;
+    }
+
+   .adopt-text p{
+       font-size: 1.2dvw;
+   }
+
+   .adopt-text li{
+       font-size: 1.2dvw;
+   }
+    
+    .right-image img {
+        width: 200px;
+        height: 200px;
+        margin-left: 1px;
+    }
+
+    .adopt-text {
+        margin-left: 50px;
+    }
+
+    .donate-shape-content-2 {
+        display: block;
+        max-width: 150px;
+        position: absolute;
+        top: 40em;
+        right: 5%;
+        transform: rotate(20deg);
+    }
+}
+
+@media (max-width: 1160px) {
+    .donate-shape-content-2 {
+        display: block;
+        max-width: 120px;
+        position: absolute;
+        top: 43em;
+        right: 2%;
+        transform: rotate(20deg);
+    }
+}
+
